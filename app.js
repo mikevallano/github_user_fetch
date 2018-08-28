@@ -1,5 +1,6 @@
 const searchInput = document.getElementById('search-user')
 const github = new GitHub()
+const ui = new Ui()
 
 searchInput.addEventListener('keyup', (e) => {
   let searchVal = e.target.value
@@ -10,8 +11,7 @@ searchInput.addEventListener('keyup', (e) => {
           console.log('not found: ', data)
           // show user not found
         } else {
-          // show user data
-          console.log({data})
+          ui.showProfile(data.profileData)
         }
       })
   } else {
