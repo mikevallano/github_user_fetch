@@ -1,4 +1,6 @@
 const searchInput = document.getElementById('search-user')
+const searchContainer = document.querySelector('.search-container')
+const searchCard = document.querySelector('.search')
 const github = new GitHub()
 const ui = new Ui()
 
@@ -8,13 +10,12 @@ searchInput.addEventListener('keyup', (e) => {
     github.getUser(searchVal)
       .then(data => {
         if (data.profileData.message == 'Not Found') {
-          console.log('not found: ', data)
-          // show user not found
+          ui.showAlert('User not found', 'alert alert-danger')
         } else {
           ui.showProfile(data.profileData)
         }
       })
   } else {
-    // clear data
+    ui.clearProfile()
   }
 })

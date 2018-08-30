@@ -4,7 +4,7 @@ class Ui {
   }
 
   showProfile(user) {
-    console.log(user)
+    this.clearAlert()
     this.profile.innerHTML = `
     <div class="card card-body mb-3">
       <div class="row">
@@ -29,5 +29,28 @@ class Ui {
     <h3 class="page-heading mb-3">Latest Repos</h3>
     <div id="repos"></div>
     `
+  }
+
+  clearProfile() {
+    this.profile.innerHTML = ''
+  }
+
+  showAlert(msg, className) {
+    // this.profile.innerHTML = `<p class="mt-3 ${className}">${msg}</p>`
+    this.clearAlert()
+    this.clearProfile()
+    const div = document.createElement('div')
+    div.className = `mt-3 ${className}`
+    const txt = document.createTextNode(msg)
+    div.appendChild(txt)
+    searchContainer.insertBefore(div, searchCard)
+  }
+
+  clearAlert() {
+    let currentAlert = document.querySelector('.alert-danger')
+
+    if (currentAlert) {
+      currentAlert.remove()
+    }
   }
 }
