@@ -13,6 +13,7 @@ searchInput.addEventListener('keyup', (e) => {
           ui.showAlert('User not found', 'alert alert-danger')
         } else {
           ui.showProfile(data.profileData)
+          ui.showRepos(data.repoData)
         }
       })
   } else {
